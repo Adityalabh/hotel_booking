@@ -19,7 +19,7 @@ const bcryptSalt = bcrypt.genSaltSync(10);//to add more salt to password
 const jwtSecret = process.env.jwtSecret;
 
 app.use(express.json());//This is used to parse incoming data from rq.body
-app.use(cookieParser());
+app.use(cookieParser());//this is used for maintainnig user cookie information
 
 // In simple terms, this line tells the Express.js application to serve all files located in 
 //the uploads directory whenever a request URL starts with /uploads
