@@ -12,7 +12,7 @@ const Place = require('./models/Place');
 const Booking = require("./models/booking");
 const { rejects } = require('assert');
 
-require('dotenv').config();//to handle .env file to hold important info like mongodb password
+require('dotenv').config({ path: '../.env' });//to handle .env file to hold important info like mongodb password
 const app = express();
 
 const bcryptSalt = bcrypt.genSaltSync(10);//to add more salt to password
