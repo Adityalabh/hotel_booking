@@ -17,6 +17,7 @@ const app = express();
 
 const bcryptSalt = bcrypt.genSaltSync(10);//to add more salt to password
 const jwtSecret = process.env.jwtSecret;
+const PORT = process.env.PORT;
 
 app.use(express.json());//This is used to parse incoming data from rq.body
 app.use(cookieParser());//this is used for maintainnig user cookie information
@@ -32,12 +33,7 @@ app.use(cors({
 
 // console.log(process.env.MONGO_URL);
 //mogodb connection
-try {
-    mongoose.connect(process.env.MONGO_URL);
-    console.log('Mongodb Database connected');
-} catch (error) {
-    console.log(err.message);
-}
+
 
 app.get('/test', (req, res) => {
     res.json("test running ok");
@@ -258,4 +254,12 @@ app.get("/bookings/:id", async (req, res) => {
     res.json(await Booking.findById(id).populate("place"));
 })
 
-app.listen(4000);                   
+app.listen(PORT,()=>{
+    try {
+        mongoose.connect(process.env.MONGO_URL);
+        console.log('Mongodb Database connected');
+        console.log(`port listening on ${PORT}`);
+    } catch (error) {
+        console.log(err.message);
+    }
+});                   
