@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+input[type="number"] {
+    @apply w-full border my-1 py-2 px-3 border-b-gray-500 outline-none;
+}
+
+textarea {
+    height: 150px;
+}
+
+li{
+    @apply  hover:underline cursor-pointer
+}
+
+button {
+    @apply bg-gray-300;
+}
+
+button.primary {
+    background-color: rgb(193, 18, 31);
+    @apply bg-primary p-2 w-full text-white rounded-2xl;
+}
+
+/* .scrollbar-hide::-webkit-scrollbar {
+    @apply display: none;
+}
+   */
+
+/* @media (min-width: 768px) {
+    .md\\:line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+} */
