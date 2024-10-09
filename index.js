@@ -34,6 +34,12 @@ app.use(cors({
 // console.log(process.env.MONGO_URL);
 //mogodb connection
 
+// Serve the React frontend
+app.use(express.static(path.join(__dirname, 'client/dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
+});
 
 app.get('/test', (req, res) => {
     res.json("test running ok");
