@@ -8,7 +8,7 @@ const PlaceImg = ({ place,index,className}) => {
     <div>
       {place.photos.length > 0 && (
         <img
-          src={`https://hotel-booking-5-kpao.onrender.com/uploads/${place.photos[index]}`}
+          src={`http://localhost:4000/uploads/${place.photos[index]}`}
           alt=""
           className={className}
         />

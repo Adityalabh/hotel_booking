@@ -12,7 +12,7 @@ import ShowPage from "./pages/ShowPage";
 import PhotosPage from "./pages/PhotosPage";
 import SingleBookingPage from "./pages/SingleBookingPage";
 
-axios.defaults.baseURL = "https://hotel-booking-5-kpao.onrender.com";//giving base url so no need to type whole url again and again
+axios.defaults.baseURL = "http://localhost:4000";//giving base url so no need to type whole url again and again
 
 // withCredentials to true allows the browser to send cookies that are applicable to the target domain
 //cross origin request,session management ,for security,use before making any axios request

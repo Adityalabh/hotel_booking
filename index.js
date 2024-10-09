@@ -26,25 +26,16 @@ app.use(cookieParser());//this is used for maintainnig user cookie information
 // In simple terms, this line tells the Express.js application to serve all files located in 
 //the uploads directory whenever a request URL starts with /uploads
 app.use('/uploads', express.static(__dirname + '/uploads'));
-
+// console.log(__dirname);
 app.use(cors({
+    origin: "http://localhost:5173",
     credentials: true,
-    origin: process.env.URL,
 }));
 
 // console.log(process.env.MONGO_URL);
 //mogodb connection
 
-// Serve the React frontend
-app.use(express.static(path.join(__dirname, 'client/dist')));
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/dist', 'index.html'));
-});
-
-app.get('/test', (req, res) => {
-    res.json("test running ok");
-});
 
 //when you are using asynchronous inside of a function then you have to wrap it inside of promise
 //like here jwt is asynchronous so it wrap inside of promise so this function either return resolved or rejected value
@@ -221,7 +212,9 @@ app.put('/places', (req, res) => {
 });
 
 app.get('/index', async (req, res) => {
-    res.json(await Place.find());
+    const placeData = await Place.find();
+    res.json(placeData);
+    console.log(placeData);
 });
 
 app.get(`/show/:id`, async (req, res) => {
@@ -259,7 +252,18 @@ app.get("/bookings", async (req, res) => {
 app.get("/bookings/:id", async (req, res) => {
     const { id } = req.params;
     res.json(await Booking.findById(id).populate("place"));
-})
+}); 
+
+// Serve the React frontend
+app.use(express.static(path.join(__dirname, 'client/dist')));
+
+app.get('*', (_, res) => {
+  res.sendFile(path.resolve(__dirname, 'client','dist','index.html'));
+});
+
+app.get('/test', (req, res) => {
+    res.json("test running ok");
+});
 
 app.listen(PORT,()=>{
     try {

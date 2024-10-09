@@ -8,11 +8,11 @@ const IndexPage = () => {
   const {user} = useContext(UserContext);
   const navigate = useNavigate();
 
-  useEffect(()=>{
-    if(!user){
-      navigate('/login');
-    }
-  },[]);
+  // useEffect(()=>{
+  //   if(!user){
+  //     navigate('/login');
+  //   }
+  // },[]);
 
   useEffect(() => {
     axios.get("/index").then((response) => {
