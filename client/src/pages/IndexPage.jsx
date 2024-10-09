@@ -1,9 +1,18 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../UserContextProvider";
 
 const IndexPage = () => {
   let [placeData, setplaceData] = useState([]);
+  const {user} = useContext(UserContext);
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    if(!user){
+      navigate('/login');
+    }
+  },[]);
 
   useEffect(() => {
     axios.get("/index").then((response) => {
