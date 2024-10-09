@@ -27,7 +27,7 @@ const IndexPage = () => {
           <Link key={place._id} to={`/show/${place._id}`} className=" bg-gray-00 rounded-2xl p-2 ">
             <div className="flex">
               {place.photos.length > 0 && (
-                <img className="max-h-[400px] aspect-square object-cover rounded-xl" src={`https://hotel-booking-2-gafy.onrender.com/uploads/${place.photos[0]}`} alt="" />
+                <img className="max-h-[400px] aspect-square object-cover rounded-xl" src={`http://localhost:4000/uploads/${place.photos[0]}`} alt="" />
               )}
             </div>
             <div>

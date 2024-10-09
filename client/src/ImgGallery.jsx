@@ -23,7 +23,7 @@ const ImgGallery = ({placeData}) => {
 
         {placeData.photos?.[0] && (
           <img
-            src={`https://hotel-booking-2-gafy.onrender.com/uploads/${placeData.photos[0]}`}
+            src={`http://localhost:4000/uploads/${placeData.photos[0]}`}
             alt=""
             className="object-cover cursor-pointer"
             onClick={() => setShowAllPhoto(true)}
@@ -33,7 +33,7 @@ const ImgGallery = ({placeData}) => {
       <div className="grid  gap-2 ">
         {placeData.photos?.[1] && (
           <img
-            src={`https://hotel-booking-2-gafy.onrender.com/uploads/${placeData.photos[1]}`}
+            src={`http://localhost:4000/uploads/${placeData.photos[1]}`}
             alt=""
             className="aspect-square  object-cover cursor-pointer"
             onClick={() => setShowAllPhoto(true)}
@@ -43,7 +43,7 @@ const ImgGallery = ({placeData}) => {
         <div className="">
           {placeData.photos?.[2] && (
             <img
-              src={`https://hotel-booking-2-gafy.onrender.com/uploads/${placeData.photos[2]}`}
+              src={`http://localhost:4000/uploads/${placeData.photos[2]}`}
               alt=""
               className="aspect-square  object-cover cursor-pointer"
               onClick={() => setShowAllPhoto(true)}
