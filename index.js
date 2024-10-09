@@ -11,6 +11,7 @@ const fs = require('fs');//this helps in renaming file name
 const Place = require('./models/Place');
 const Booking = require("./models/booking");
 const { rejects } = require('assert');
+const path = require('path');
 
 require('dotenv').config();//to handle .env file to hold important info like mongodb password
 const app = express();
