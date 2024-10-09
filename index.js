@@ -3,13 +3,13 @@ const cors = require('cors');//it helps api server to communicate and share reso
 const mongoose = require('mongoose');//to have connectivity with mongodb 
 const bcrypt = require('bcryptjs');//to make password more secure instead of passing password as simple text
 const jwt = require('jsonwebtoken');//this is 
-const User = require('./api/models/User');//to access user schema
+const User = require('./models/User');//to access user schema
 const cookieParser = require('cookie-parser');//to parse the cookie
 const imageDownloader = require("image-downloader");
 const multer = require('multer');
 const fs = require('fs');//this helps in renaming file name
-const Place = require('./api/models/Place');
-const Booking = require("./api/models/booking");
+const Place = require('./models/Place');
+const Booking = require("./models/booking");
 const { rejects } = require('assert');
 
 require('dotenv').config();//to handle .env file to hold important info like mongodb password
