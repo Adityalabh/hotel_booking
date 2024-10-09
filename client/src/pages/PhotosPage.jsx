@@ -17,7 +17,7 @@ const PhotosPage = ({placeData,setShowAllPhoto}) => {
         placeData.photos.map((photo) => (
           <div className=" my-4" key={photo}>
             <img
-              src={`http://localhost:4000/uploads/${photo}`}
+              src={`https://hotel-booking-2-gafy.onrender.com/uploads/${photo}`}
               alt=""
               className="mx-auto w-[60vw] max-h-[600px] object-cover rounded-2xl mb-3 "
             />

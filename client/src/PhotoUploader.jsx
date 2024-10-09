@@ -90,7 +90,7 @@ const PhotoUploader = ({ addedPhoto, onChange }) => {
               <div key={index} className="flex relative">
                 <div>
                   <img
-                    src={"http://localhost:4000/uploads/" + link}
+                    src={"https://hotel-booking-2-gafy.onrender.com/uploads/" + link}
                     alt=""
                     className="rounded-2xl shadow-sm  p-1 max-h-[250px] object-cover "
                   />

@@ -28,7 +28,7 @@ app.use(cookieParser());//this is used for maintainnig user cookie information
 app.use('/uploads', express.static(__dirname + '/uploads'));
 // console.log(__dirname);
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: "https://hotel-booking-2-gafy.onrender.com",
     credentials: true,
 }));
 
