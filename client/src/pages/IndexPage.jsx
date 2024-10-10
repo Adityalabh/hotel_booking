@@ -21,6 +21,7 @@ const IndexPage = () => {
   }, []);
 
   return (
+    // showing list all places
     <div className=" min-h-screen grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3   lg:grid-cols-3 xl:grid-cols-4">
       {placeData.length > 0 &&
         placeData.map((place) => (

@@ -35,12 +35,9 @@ app.use(cors({
 // console.log(process.env.MONGO_URL);
 //mogodb connection
 
-
-
 //when you are using asynchronous inside of a function then you have to wrap it inside of promise
 //like here jwt is asynchronous so it wrap inside of promise so this function either return resolved or rejected value
 function getUserDataFromReq(req) {
-
     return new Promise((resolve, reject) => {
         jwt.verify(req.cookies.token, jwtSecret, {}, async (err, userData) => {
             if (err) throw err;
@@ -93,6 +90,7 @@ app.post('/login', async (req, res) => {
     }
 
 });
+
 // jwt.verify can be used to retrieve data from token then to show data on page
 //profile route is called so to get the current user data       
 app.get('/profile', (req, res) => {
@@ -225,16 +223,17 @@ app.get(`/show/:id`, async (req, res) => {
 
 app.post("/bookings", async (req, res) => {
     // const {id} = req.params;
-    const userData = await getUserDataFromReq(req);
-    const { place, checkIn, checkOut, maxGuest, name, email, bookingPrice, phoneNumber } = req.body;
+    try {
+        const userData = await getUserDataFromReq(req);
+        const { place, checkIn, checkOut, maxGuest, name, email, bookingPrice, phoneNumber } = req.body;
 
-    Booking.create({
-        userId: userData.id, place, checkIn, checkOut, maxGuest, name, email, bookingPrice, phoneNumber
-    }).then((doc) => {
-        res.json(doc);
-    }).catch((err) => {
-        throw err;
-    })
+        const data = await Booking.create({
+            userId: userData.id, place, checkIn, checkOut, maxGuest, name, email, bookingPrice, phoneNumber
+        });
+        res.json(data);
+    } catch (err) {
+        console.log(err.message);
+    }
 
 });
 
@@ -252,20 +251,20 @@ app.get("/bookings", async (req, res) => {
 app.get("/bookings/:id", async (req, res) => {
     const { id } = req.params;
     res.json(await Booking.findById(id).populate("place"));
-}); 
+});
 
 // Serve the React frontend
 app.use(express.static(path.join(__dirname, 'client/dist')));
 
 app.get('*', (_, res) => {
-  res.sendFile(path.resolve(__dirname, 'client','dist','index.html'));
+    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'));
 });
 
 app.get('/test', (req, res) => {
     res.json("test running ok");
 });
 
-app.listen(PORT,()=>{
+app.listen(PORT, () => {
     try {
         mongoose.connect(process.env.MONGO_URL);
         console.log('Mongodb Database connected');
