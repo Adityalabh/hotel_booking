@@ -55,9 +55,9 @@ const ImgGallery = ({placeData}) => {
       {/* setShowAllPhoto button */}
       <button
         onClick={() => setShowAllPhoto(true)}
-        className="z-30 bg-white p-2 m-3 absolute bottom-0 right-0 rounded-2xl cursor-pointer shadow-md hover:shadow-gray-900"
+        className=" bg-white p-2 m-3 absolute bottom-0 right-0 rounded-2xl cursor-pointer shadow-md hover:shadow-gray-900"
       >
-        <i className="fa-solid fa-image z-10"></i>
+        <i className="fa-solid fa-image "></i>
         <span className="ml-2">Show All Photos</span>
       </button>
     </div>
