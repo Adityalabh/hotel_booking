@@ -6,7 +6,7 @@ const HeaderPage = () => {
   const { user } = useContext(UserContext);
   return (
     <div>
-      <header className=" flex  py-3 justify-between items-center ">
+      <header className=" flex z-20 py-3 justify-between items-center ">
         <Link to={"/"} className=" flex gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
