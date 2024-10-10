@@ -212,7 +212,7 @@ app.put('/places', (req, res) => {
 app.get('/index', async (req, res) => {
     const placeData = await Place.find();
     res.json(placeData);
-    console.log(placeData);
+    // console.log(placeData);
 });
 
 app.get(`/show/:id`, async (req, res) => {

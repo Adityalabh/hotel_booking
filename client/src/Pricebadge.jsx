@@ -53,7 +53,7 @@ const Pricebadge = ({ placeData }) => {
       //to get the id of newly created data
       const bookingId = response.data._id;
       setRedirect(`/account/bookings`);
-      console.log(bookingId);
+      // console.log(bookingId);
       
     } catch (err) {
       alert("booking failed");

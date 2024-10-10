@@ -16,7 +16,7 @@ const AccountPage = () => {
   if (!user) {
     return <LoginPage />;
   }
-  console.log(subpage);
+  // console.log(subpage);
 
   //to apply style on links
   function linkClasses(type = null) {

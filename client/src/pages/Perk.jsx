@@ -9,7 +9,7 @@ const Perk = ({commonStyle,selected,onChange}) => {
     }else{
         onChange([...selected.filter(selectedName => selectedName !== name)]);
     }
-    console.log(name,checked,selected);
+    // console.log(name,checked,selected);
  }
 
   return (

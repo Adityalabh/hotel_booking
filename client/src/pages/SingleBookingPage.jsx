@@ -16,7 +16,7 @@ const SingleBookingPage = () => {
       axios.get(`/bookings/${id}`).then(({ data }) => {
         setBooking(data);
       });
-      console.log(booking);
+      // console.log(booking);
     } catch (err) {
       console.log("err Occured", err);
     }
